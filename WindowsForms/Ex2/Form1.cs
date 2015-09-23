@@ -18,13 +18,24 @@ namespace Ex2
 
         private void btnClica_Click(object sender, EventArgs e)
         {
-            for (int i=0; i<5;i++)
-            {
-                MessageBox.Show("Fui ver a fonte","Já foste",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-				MessageBox.Show("Alteração user unknown :)","Já foste",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-				
-            }
+            Random p = new Random();
             
+            //Random de 1 a 7... Número espaços para balas
+            int num = p.Next(1, 7);
+
+
+            // jogada
+            int jogada = p.Next(1, 7);
+            if (num == jogada)
+            {
+                // Morreste
+                MessageBox.Show("Pum! Morreste", "Já foste", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                // Tiveste sorte
+                MessageBox.Show("Desta vez tiveste sorte, da próxima .... já não sei!", "Sorte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
