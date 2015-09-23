@@ -20,7 +20,7 @@ namespace Ex2
         {
             for (int i=0; i<5;i++)
             {
-                MessageBox.Show("Se a curiosidade matasse!!!!","Já foste",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Fui ver a fonte","Já foste",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             
         }
