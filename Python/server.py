@@ -38,7 +38,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
          print "COMANDO NAO DEFINIDO!"  
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 9998
+    HOST, PORT = "localhost", 9999
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
