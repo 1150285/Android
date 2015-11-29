@@ -8,7 +8,11 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
     override the handle() method to implement communication to the
     client.
     """
-
+    
+    #Protocolo / Rever switch collection
+    #TESTCOMUNICATION #TESTVIDEO #STARTVIDEO #STOPVIDEO #MOVEFRONT #MOVEREAR 
+    #MOVELEFT20 #MOVELEFT40 #MOVELEFT60 #MOVERIGHT20 #MOVERIGHT40 #MOVERIGHT60
+ 
     def handle(self):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
@@ -18,19 +22,23 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 	self.tokens = self.data.split(' ', 1)
         self.command = self.tokens[0]
 	print "Comando recebido >>> " + self.command	
-	if self.command == 'MOVEFRONT':
-         print "XMOVEFRONT"
+	if self.command == 'TESTCOMMUNICATION':
+		print "Request from Andorid to Test Communication"
+	elif self.command == 'TESTVIDEO':
+		print "Request from Andorid to Test Video"    
+	elif self.command == 'MOVEFRONT':
+		print "Request from Andorid to Move Front"
 	elif self.command == 'MOVEREAR':
-         print "XMOVEREAR"
-        else:
+		print "Request from Andorid to Move Rear" 
+	elif self.command == 'STARTVIDEO':
+		print "Request from Andorid to Strat Video" 
+	elif self.command == 'STOPVIDEO':
+		print "Request from Andorid to Stop Video" 
+	else:
          print "COMANDO NAO DEFINIDO!"  
-      
-        # just send back the same data, but upper-cased
-        self.request.sendall(self.data.upper())
-
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 9999
+    HOST, PORT = "localhost", 9998
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
