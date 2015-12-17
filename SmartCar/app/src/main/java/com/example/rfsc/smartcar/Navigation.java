@@ -1,6 +1,7 @@
 package com.example.rfsc.smartcar;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -8,9 +9,11 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -18,9 +21,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class Navigation extends Activity implements SensorEventListener {
-
     private Sensor          accelerometer;
     private SensorManager   sm;
     private TextView        accelaration;
@@ -54,9 +55,12 @@ public class Navigation extends Activity implements SensorEventListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final int MESSAGE_CODE=1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+        // Manter ecrã activo
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
        // SocketCom mThread = new SocketCom(NavHandler);
         //Arranca a Thread
         mThread = new SocketCom(mHandler);
@@ -67,7 +71,7 @@ public class Navigation extends Activity implements SensorEventListener {
         sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL); // Register o sensor listener  -- implements SensorEventListener
         accelaration = (TextView) findViewById(R.id.accelaration);
 
-        ImageButton btFront = (ImageButton)findViewById(R.id.imgButtonFront);
+        ImageButton btFront = (ImageButton) findViewById(R.id.imgButtonFront);
         btFront.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
