@@ -1,0 +1,88 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    android:showDividers="middle"
+    tools:context=".Navigation">
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#5f5f5f"
+        android:layout_weight="0.26">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="SMARTCAR"
+            android:id="@+id/wifiSignal"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+
+        <ImageButton
+            android:id="@+id/imgButtonFront"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/up"
+            android:layout_marginTop="49dp"
+            android:layout_below="@+id/wifiSignal"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:id="@+id/imgButtonRear"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/down"
+            android:layout_marginTop="49dp"
+            android:layout_below="@+id/imgButtonFront"
+            android:layout_alignLeft="@+id/imgButtonFront"
+            android:layout_alignStart="@+id/imgButtonFront" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/action_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.50"
+        android:background="#ffffff">
+
+
+        <com.camera.simplemjpeg.MjpegView
+            android:id="@+id/mv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIDEO"
+            android:id="@+id/switchVideo"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+    </FrameLayout>
+
+
+
+</LinearLayout>
+
+
+
+
